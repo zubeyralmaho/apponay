@@ -2,13 +2,32 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 
 export function Hero() {
     const [phone, setPhone] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        // If phone is provided, send it to the API
+        if (phone.trim()) {
+            setIsSubmitting(true);
+            try {
+                await fetch("/api/lead", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ phone: phone.trim() }),
+                });
+            } catch (error) {
+                console.error("Lead submission error:", error);
+            } finally {
+                setIsSubmitting(false);
+            }
+        }
+        
+        // Scroll to contact section
         const contactSection = document.getElementById("contact");
         if (contactSection) {
             contactSection.scrollIntoView({ behavior: "smooth" });
@@ -81,10 +100,17 @@ export function Hero() {
                                 />
                                 <button
                                     type="submit"
-                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--apple-blue)] text-white text-sm font-medium hover:bg-[#0077ed] transition-colors whitespace-nowrap"
+                                    disabled={isSubmitting}
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--apple-blue)] text-white text-sm font-medium hover:bg-[#0077ed] transition-colors whitespace-nowrap disabled:opacity-70"
                                 >
-                                    Destek Alın
-                                    <ArrowRight className="w-4 h-4" />
+                                    {isSubmitting ? (
+                                        <Loader2 className="w-4 h-4 animate-spin" />
+                                    ) : (
+                                        <>
+                                            Destek Alın
+                                            <ArrowRight className="w-4 h-4" />
+                                        </>
+                                    )}
                                 </button>
                             </div>
                         </motion.form>

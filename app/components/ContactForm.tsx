@@ -39,13 +39,27 @@ export function ContactForm() {
         setSubmitError(null);
 
         try {
-            // Simulate API call
-            await new Promise((resolve) => setTimeout(resolve, 1500));
-            console.log("Form data:", data);
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Bir hata oluştu");
+            }
+
             setIsSuccess(true);
             reset();
-        } catch {
-            setSubmitError("Bir hata oluştu. Lütfen tekrar deneyin.");
+        } catch (error) {
+            setSubmitError(
+                error instanceof Error
+                    ? error.message
+                    : "Bir hata oluştu. Lütfen tekrar deneyin."
+            );
         } finally {
             setIsSubmitting(false);
         }

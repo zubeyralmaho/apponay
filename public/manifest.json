@@ -1,0 +1,31 @@
+{
+  "name": "AppOnay - Apple Developer Hesap Açma",
+  "short_name": "AppOnay",
+  "description": "Türkiye'den Apple Developer hesabı açma ve ödeme sorunu çözümü",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0071e3",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "lang": "tr",
+  "dir": "ltr"
+}

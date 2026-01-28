@@ -41,6 +41,16 @@ export const metadata: Metadata = {
   authors: [{ name: "Ajan Solutions", url: "https://ajansolutions.com" }],
   creator: "AppOnay",
   publisher: "Ajan Solutions",
+  metadataBase: new URL("https://apponay.com"),
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", type: "image/png" },
+    ],
+  },
+  manifest: "/manifest.json",
   robots: {
     index: true,
     follow: true,
@@ -56,6 +66,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     siteName: "AppOnay",
+    url: "https://apponay.com",
   },
   twitter: {
     card: "summary_large_image",
@@ -64,6 +75,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://apponay.com",
+  },
+  verification: {
+    google: "google-site-verification-code", // Google Search Console'dan alınacak
   },
 };
 
