@@ -4,8 +4,8 @@ import Image from "next/image";
 import { ArrowRight, Check, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "Apple Developer Payment Declined Çözümü | AppOnay.com",
-    description: "Türkiye'den Apple Developer Program ödemesi yaparken 'Payment Declined' hatası mı alıyorsunuz? Garantili çözüm için hemen iletişime geçin.",
+    title: "Apple Developer Payment Declined Çözümü | Ödeme Reddedildi Hatası | AppOnay.com",
+    description: "'Your payment could not be authorized' veya 'Kartınızla yapmak istediğiniz ödeme için onay alınamadı' hatası mı alıyorsunuz? Türkiye'den Apple Developer ödeme sorunu için garantili çözüm.",
     keywords: [
         "apple developer payment declined",
         "apple developer ödeme reddedildi",
@@ -13,10 +13,16 @@ export const metadata: Metadata = {
         "apple developer ödeme sorunu türkiye",
         "apple 99 dolar ödeme hatası",
         "apple developer kredi kartı kabul etmiyor",
+        "your payment could not be authorized",
+        "kartınızla yapmak istediğiniz ödeme için onay alınamadı",
+        "ödeme yönteminiz reddedildi",
+        "payment method declined apple",
+        "unable to process payment apple developer",
+        "ödeme için onay alınamadı apple",
     ],
     openGraph: {
         title: "Apple Developer Payment Declined Çözümü | AppOnay.com",
-        description: "Payment Declined hatası için garantili çözüm.",
+        description: "'Your payment could not be authorized' hatası için garantili çözüm.",
         type: "website",
     },
 };
@@ -65,8 +71,9 @@ export default function PaymentDeclinedCozumu() {
                     </h1>
 
                     <p className="text-xl text-zinc-600 max-w-2xl mx-auto mb-10">
-                        &quot;Ödeme için onay alınamadı&quot; hatası mı alıyorsunuz?
-                        Türkiye&apos;deki geliştiricilerin %70&apos;i bu sorunla karşılaşıyor. Çözümü var.
+                        <span className="font-semibold text-red-600">&quot;Your payment could not be authorized&quot;</span> veya{" "}
+                        <span className="font-semibold text-red-600">&quot;Kartınızla yapmak istediğiniz ödeme için onay alınamadı&quot;</span>{" "}
+                        hatası mı alıyorsunuz? Türkiye&apos;deki geliştiricilerin %70&apos;i bu sorunla karşılaşıyor. Çözümü var.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

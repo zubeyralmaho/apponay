@@ -103,10 +103,10 @@ export function Footer() {
                                     <Mail className="w-4 h-4 text-[var(--apple-blue)]" />
                                 </div>
                                 <a
-                                    href="mailto:destek@ajansolutions.com"
+                                    href="mailto:destek@apponay.com"
                                     className="hover:text-white transition-colors"
                                 >
-                                    destek@ajansolutions.com
+                                    destek@apponay.com
                                 </a>
                             </li>
                             <li className="flex items-center gap-3 text-zinc-400 text-sm group">

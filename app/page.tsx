@@ -12,7 +12,7 @@ import { ContactForm } from "@/app/components/ContactForm";
 export const metadata: Metadata = {
   title: "Apple Developer Hesap Açma ve Ödeme Sorunu Çözümü | Türkiye | AppOnay",
   description:
-    "Türkiye'den Apple Developer hesabı açamıyor musunuz? Payment Declined hatası, ödeme reddedildi sorunu ve D-U-N-S numarası problemleri için %100 garantili profesyonel çözüm. 500+ başarılı hesap açılışı.",
+    "Türkiye'den Apple Developer hesabı açamıyor musunuz? 'Your payment could not be authorized' veya 'Kartınızla yapmak istediğiniz ödeme için onay alınamadı' hatası mı alıyorsunuz? Payment Declined sorunu ve D-U-N-S numarası problemleri için %100 garantili profesyonel çözüm.",
   keywords: [
     "apple developer hesap açma",
     "apple developer türkiye",
@@ -22,6 +22,12 @@ export const metadata: Metadata = {
     "duns numarası alma",
     "ios developer hesap türkiye",
     "app store hesap açma",
+    "your payment could not be authorized",
+    "kartınızla yapmak istediğiniz ödeme için onay alınamadı",
+    "ödeme yönteminiz reddedildi apple",
+    "apple developer kredi kartı kabul etmiyor",
+    "payment method declined",
+    "unable to process your payment",
   ],
   alternates: {
     canonical: "https://apponay.com",
