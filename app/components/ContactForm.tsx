@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 const contactSchema = z.object({
     name: z.string().min(2, "İsim en az 2 karakter olmalıdır"),
     email: z.string().email("Geçerli bir e-posta adresi girin"),
-    phone: z.string().optional(),
+    phone: z.string().min(10, "Geçerli bir telefon numarası girin"),
     problemType: z.string().min(1, "Lütfen bir sorun tipi seçin"),
     message: z.string().min(10, "Mesaj en az 10 karakter olmalıdır"),
 });
@@ -183,15 +183,24 @@ export function ContactForm() {
                                         htmlFor="phone"
                                         className="block text-sm font-medium text-[var(--apple-dark)]"
                                     >
-                                        Telefon (Opsiyonel)
+                                        Telefon *
                                     </label>
                                     <Input
                                         id="phone"
                                         type="tel"
                                         placeholder="+90 5XX XXX XX XX"
                                         {...register("phone")}
-                                        className="glass-input"
+                                        className={cn(
+                                            "glass-input",
+                                            errors.phone && "border-red-300 focus:ring-red-500"
+                                        )}
                                     />
+                                    {errors.phone && (
+                                        <p className="text-sm text-red-500 flex items-center gap-1">
+                                            <AlertCircle className="w-4 h-4" />
+                                            {errors.phone.message}
+                                        </p>
+                                    )}
                                 </div>
 
                                 <div className="space-y-2">
