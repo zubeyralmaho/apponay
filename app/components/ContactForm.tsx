@@ -34,6 +34,15 @@ export function ContactForm() {
         resolver: zodResolver(contactSchema),
     });
 
+    // Google Ads dönüşüm izleme
+    const trackConversion = () => {
+        if (typeof window !== "undefined" && typeof (window as typeof window & { gtag?: (...args: unknown[]) => void }).gtag === "function") {
+            (window as typeof window & { gtag: (...args: unknown[]) => void }).gtag("event", "conversion", {
+                send_to: "AW-17913090600/CONVERSION_LABEL",
+            });
+        }
+    };
+
     const onSubmit = async (data: ContactFormData) => {
         setIsSubmitting(true);
         setSubmitError(null);
@@ -51,6 +60,9 @@ export function ContactForm() {
                 const errorData = await response.json();
                 throw new Error(errorData.error || "Bir hata oluştu");
             }
+
+            // Dönüşümü Google Ads'e bildir
+            trackConversion();
 
             setIsSuccess(true);
             reset();

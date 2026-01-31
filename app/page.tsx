@@ -181,9 +181,6 @@ export default function Home() {
         {/* FAQ: Structured Q&A - Prime Content for AI Extraction */}
         <section
           aria-label="Sıkça Sorulan Sorular"
-          itemProp="hasPart"
-          itemScope
-          itemType="https://schema.org/FAQPage"
         >
           <FAQ />
         </section>

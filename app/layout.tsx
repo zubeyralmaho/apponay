@@ -235,29 +235,53 @@ export default function RootLayout({
   return (
     <html lang="tr" className="scroll-smooth">
       <head>
-        {/* JSON-LD Structured Data for GEO Optimization */}
+        {/* Google Ads (gtag.js) */}
         <Script
-          id="organization-schema"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17913090600"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17913090600');
+          `}
+        </Script>
+        
+        {/* Google Ads Conversion Tracking */}
+        <Script id="google-ads-conversion" strategy="afterInteractive">
+          {`
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                'send_to': 'AW-17913090600/CONVERSION_LABEL',
+                'event_callback': callback
+              });
+              return false;
+            }
+          `}
+        </Script>
+
+        {/* JSON-LD Structured Data for GEO Optimization */}
+        <script
           type="application/ld+json"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        <Script
-          id="service-schema"
+        <script
           type="application/ld+json"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
         />
-        <Script
-          id="faq-schema"
+        <script
           type="application/ld+json"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
-        <Script
-          id="howto-schema"
+        <script
           type="application/ld+json"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
         />
       </head>
